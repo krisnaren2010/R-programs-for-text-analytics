@@ -159,8 +159,8 @@ dtm_builder_tf_idf <- function(x_defined){
   total_plot <- function(x){  
     dtm<-x
     print(dtm%>%Plot_Wordc() )
-    print(dtm%>%Plot_BarChart())
-    print(dtm%>%Plot_distill_cog(title,s,k1))
+    dtm%>%Plot_BarChart()
+    #print(dtm%>%Plot_distill_cog(title,s,k1))
     }
 # x <-readLines('https://github.com/sudhir-voleti/sample-data-sets/raw/master/text%20analysis%20data/amazon%20nokia%20lumia%20reviews.txt')
 # 
