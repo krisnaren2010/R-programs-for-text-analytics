@@ -61,7 +61,7 @@ dtm_builder_tf_idf <- function(x_defined){
   require(tidytext)
   library(tidytext)
   
-  text_df<-x_defined
+  text_defined <-x_defined
   corpus_words<-text_defined %>% unnest_tokens(word,text) %>% count(document,word,sort = TRUE)%>% ungroup()
   total_words<-corpus_words%>%group_by(document)%>%summarize(total=sum(n))
   corpus_words<-left_join(corpus_words,total_words)
