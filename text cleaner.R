@@ -14,9 +14,7 @@ comn  = unique(c(stpw1, stpw2))         # Union of two list
         
         x  =  removeWords(x,stopwords)            # removing stopwords created above
         x  =  stripWhitespace(x)
-        x = data.frame(id = 1:length(x),text = x, 
-                       stringsAsFactors = F)
-        # removing white space
+                # removing white space
     
         #  x  =  stemDocument(x)                   # can stem doc if needed.
         
