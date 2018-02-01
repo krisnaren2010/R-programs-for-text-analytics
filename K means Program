@@ -1,0 +1,22 @@
+if (!require(stringr)) {install.packages("stringr")}
+if (!require(dplyr)) {install.packages("dplyr")}
+if (!require(tidytext)) {install.packages("tidytext")}
+if (!require(tidyr)) {install.packages("tidyr")}
+if (!require(ggplot2)) {install.packages("ggplot2")}
+if (!require(wordcloud)) {install.packages("wordcloud")}
+if (!require(tm)) {install.packages("tm")}
+if (!require(quanteda)) {install.packages("quanteda")}
+run_kmeans_scree <- function(mydata, max_clus=15)
+{
+set.seed(seed = 0000)   # set seed for reproducible work
+  wss <- (nrow(mydata)-1)*sum(apply(mydata,2,var))  # wss is within group sum of squares
+  
+  for (i in 2:max_clus) wss[i] <- sum(      # checking model fit for 2 to max clusters
+    kmeans(mydata,  centers = i)$withinss)  # note use of kmeans() func
+  
+  # windows()    # opens a new window for plots
+  plot(1:max_clus, wss, type="b", 
+       xlab="Number of Clusters",
+       ylab="Within groups sum of squares")
+  
+}  # func ends
